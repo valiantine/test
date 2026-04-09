@@ -1,0 +1,375 @@
+:root {
+    --h1-color: #ed9190;
+    --h2-color: #91a7d0;
+    --h3-color: #7990b9;
+    --link-color: #384b6d;
+    --link-hover: #c26d6b;
+    --text-color: #535353;
+    --bullet-color: #adbdda;
+    --bold-color: #384b6d;
+    --list-color: #535353;
+    --asideline-color: #ed9190;
+    --aside-bg: #fae4ba;
+    --main-bg: #ffffff;
+    --nav-color: #ffffff;
+    --nav1-bg: #7990b9;
+    --nav2-bg: #91a7d0;
+    --nav3-bg: #f3b3b2;
+    --nav4-bg: #ed9190;
+    --nav1-border: #33496f;
+    --nav2-border: #486294;
+    --nav3-border: #c97d7b;
+    --nav4-border: #ae504e;
+    --h2star-color: #ed9190;
+    --sidebarlink-color: #6e6e6e;
+    --sidebarlink-hover: #7990b9;
+    --sidebarhover-color: #ffffff;
+    --formlabel-color: #6e6e6e;
+    --selection-bg: #ed9190;
+    --selection-color: #ffffff;
+    --tooltip-bg: #242424;
+    --tooltip-color: #ffffff;
+    --backup-body: #91a7d0;
+    --scrollbar-color: #7990b9;
+    --scrollbar-hover: #ed9190;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* nunito-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/nunito-v32-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+@font-face {
+    font-family: 'VCR Mono';
+    src: url('/fonts/VCR_OSD_MONO_1.001.ttf');
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'RomanceA';
+    src: url('/fonts/RomanceA.ttf');
+}
+
+body {
+    font-family: 'Nunito', Calibri;
+    background: url("/assets/recoloredbg.png"), var(--backup-body);
+    margin: 0;
+    padding: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    font-size: 0.815rem;
+}
+
+.container {
+    width: 1000px; 
+    height: 600px;
+
+    display: grid;
+    grid-template: 
+        "left main right"
+        / 1fr 2fr 1fr;
+    gap: 10px;
+    margin: auto;
+    padding: 20px;
+
+    border-width: 9px;
+    border-style: solid;
+    border-image: url("https://mypillowfort.nekoweb.org/border/52.png") 10 fill round;
+    overflow: hidden;
+}
+
+.leftcol {
+    grid-area: left;
+}
+
+.rightcol {
+    grid-area: right;
+}
+
+.leftcol section,
+.rightcol section {
+    padding: 10px;
+    margin-bottom: 10px;
+    background: var(--aside-bg);
+}
+
+main {
+    grid-area: main;
+    background: white;
+    overflow: auto;
+    padding: 20px;
+    gap: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: var(--h1-color);
+    font-family: 'RomanceA', Calibri;
+    letter-spacing: 1px;
+}
+
+h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-variant: small-caps;
+    letter-spacing: 1px;
+    color: var(--h2-color);
+}
+
+main h2::after {
+    content: "✦";
+    margin-left: 5px;
+    color: var(--h2star-color);
+}
+
+h3 {
+    font-size: 0.85rem;
+    color: var(--h3-color);
+}
+
+ol {
+    list-style-type: cjk-ideographic;
+}
+ol > li {
+    margin-top: 15px;
+}
+
+main ul {
+    padding-left: 20px;
+}
+
+.rightcol ul {
+    padding-left: 10px;
+}
+
+.rightcol ul > li,
+main ul > li {
+    list-style: none;
+    color: var(--list-color)
+}
+
+.rightcol b {
+    font-variant: small-caps;
+}
+
+main ul > li::before {
+    content: "↪";
+    color: var(--bullet-color);
+    display: inline-block;
+    width: 1.5em;
+    margin-left: -1em;
+}
+
+details > summary {
+    display: inline;
+}
+
+details > summary:hover {
+    cursor: nesw-resize;
+}
+
+svg {
+    vertical-align: middle;
+}
+
+.textlinks ul li {
+    list-style: none;
+    margin-left: -30px;
+}
+
+.textlinks a {
+    text-decoration: none;
+}
+
+.pictureotd {
+    max-width: 100%;
+    image-rendering: pixelated;
+}
+
+.pfp {
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin: 10px auto;
+    border-radius: 8px;
+    background-image: url(/assets/rowworside.png);
+    background-size: contain;
+}
+
+.leftcol p {
+    text-align: center;
+}
+
+nav {
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+    color: var(--nav-color);
+}
+
+nav > a {
+    color: var(--nav-color)
+}
+
+nav > a:nth-of-type(1),
+nav > a:nth-of-type(2),
+nav > a:nth-of-type(3),
+nav > span {
+    padding: 5px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+nav > a:nth-of-type(1) {
+    background-color: var(--nav1-bg);
+    padding: 5px;
+}
+
+nav > a:nth-of-type(1):hover {
+    border: 1px solid var(--nav1-border);
+}
+
+nav > a:nth-of-type(2) {
+    background-color: var(--nav2-bg);
+}
+
+nav > a:nth-of-type(2):hover {
+    border: 1px solid var(--nav2-border);
+}
+
+nav > a:nth-of-type(3) {
+    background-color: var(--nav3-bg);
+}
+
+nav > a:nth-of-type(3):hover {
+    border: 1px solid var(--nav3-border);
+}
+
+nav > span {
+    background-color: var(--nav4-bg);
+}
+
+nav > span:hover {
+    border: 1px solid var(--nav4-border);
+}
+
+main a {
+    color: var(--link-color);
+    transition: 0.5s;
+}
+
+main a:hover {
+    color: var(--link-hover);
+}
+
+p {
+    color: var(--text-color);
+}
+
+b {
+    color: var(--bold-color);
+}
+
+aside h2 {
+    margin: 10px;
+}
+
+aside h2::before {
+    content: "―";
+    margin-right: 5px;
+    color: var(--asideline-color)
+}
+
+.textlinks a {
+    color: var(--sidebarlink-color);
+    transition: 0.3s;
+}
+
+.textlinks a:hover {
+    color: var(--sidebarhover-color);
+    background-color: var(--sidebarlink-hover);
+    padding: 0px 5px;
+}
+
+
+label {
+    color: var(--formlabel-color);
+}
+
+.rowwor {
+    max-width: 40%;
+    float: left;
+}
+
+::selection {
+    background-color: var(--selection-bg);
+    color: var(--selection-color);
+}
+
+.tippy-box[data-theme~='tooltip'] {
+    background-color: var(--tooltip-bg);
+    color: var(--tooltip-color);
+    font-variant: small-caps;
+    border-radius: 15px;
+    font-size: 0.75rem;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track / background */
+::-webkit-scrollbar-track {
+  background: none; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-color); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-hover); 
+}
+
+@media (max-width : 810px) {
+    .container {
+        grid-template: 
+            "left main"
+            "right right"
+            / 1fr 2fr;
+        max-width: 95%;
+        overflow: auto;
+    }
+
+    main {
+        scrollbar-width: none;
+    }
+}
+
+@media (max-width : 480px) {
+    .container {
+        grid-template: 
+            "left"
+            "main"
+            "right";
+        overflow: auto;
+        max-width: 95%;
+    }
+
+    main {
+        overflow: visible;
+    }
+}
